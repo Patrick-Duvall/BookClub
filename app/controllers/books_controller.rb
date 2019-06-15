@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :destroy]
+  # before_action :set_book, only: [:show, :destroy]
 
   def index
 
@@ -51,6 +51,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
   end
@@ -64,8 +65,8 @@ class BooksController < ApplicationController
     new_params
   end
 
-  def set_book
-    @book = Book.find(params[:id])
-  end
+  # def set_book
+  #   @book = Book.find(params[:id])
+  # end
 
 end
